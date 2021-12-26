@@ -2136,7 +2136,7 @@ strhandle(void)
 				fprintf(stderr, "erresc: invalid cursor color %d\n", p);
 			else
 				redraw();
-			break;
+			return;
 		case 4: /* color set */
 			if (narg < 3)
 				break;
