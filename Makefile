@@ -15,7 +15,7 @@ options:
 	@echo "LDFLAGS = $(STLDFLAGS)"
 	@echo "CC      = $(CC)"
 
-config.h:
+config.h: config.def.h
 	cp config.def.h config.h
 
 .c.o:
@@ -28,7 +28,7 @@ boxdraw.o: config.h st.h boxdraw_data.h
 
 $(OBJ): config.h config.mk
 
-st: rmconfig.h $(OBJ)
+st: $(OBJ)
 	$(CC) -o $@ $(OBJ) $(STLDFLAGS)
 
 rmconfig.h:
