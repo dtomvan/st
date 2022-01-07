@@ -524,3 +524,8 @@ static char ascii_printable[] =
 #define UNDERCURL_CAPPED 2
 // Active style
 #define UNDERCURL_STYLE UNDERCURL_SPIKY
+/*
+ * plumb_cmd is run on mouse button 3 click, with first NULL set to
+ * current selection and with cwd set to the cwd of the active shell
+ */
+static char *plumb_cmd[] = {"xdg-open", NULL, NULL};
