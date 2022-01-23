@@ -138,7 +138,8 @@ static const char *colorname[] = {
 	"#2D4F67",
 	"#1F1F28",
 	// Unfocused BG
-	"#1B1B25",
+	// "#1B1B25",
+    "#1F1F28",
 };
 
 
