@@ -40,6 +40,12 @@ enum glyph_attribute {
 	ATTR_DIRTYUNDERLINE = 1 << 15,
 };
 
+enum drawing_mode {
+    DRAW_NONE = 0,
+    DRAW_BG = 1 << 0,
+    DRAW_FG = 1 << 1,
+};
+
 enum selection_mode {
 	SEL_IDLE = 0,
 	SEL_EMPTY = 1,
@@ -130,6 +136,14 @@ void drawboxes(int, int, int, int, XftColor *, XftColor *, const XftGlyphFontSpe
 #endif
 int subprocwd(char *);
 
+int isboxdraw(Rune);
+ushort boxdrawindex(const Glyph *);
+#ifdef XFT_VERSION
+/* only exposed to x.c, otherwise we'll need Xft.h for the types */
+void boxdraw_xinit(Display *, Colormap, XftDraw *, Visual *);
+void drawboxes(int, int, int, int, XftColor *, XftColor *, const XftGlyphFontSpec *, int);
+#endif
+
 /* config.h globals */
 extern char *utmp;
 extern char *scroll;
@@ -145,3 +159,4 @@ extern unsigned int defaultbg;
 extern const int boxdraw, boxdraw_bold, boxdraw_braille;
 extern float alpha, alphaUnfocused;
 extern unsigned int defaultcs;
+extern const int boxdraw, boxdraw_bold, boxdraw_braille;
